@@ -58,7 +58,7 @@ LEGAL DISCLAIMER:
 The mask is not intended to act as a medical device or other medical product, and should not be used as a replacement for conventional and approved personal protective equipment. No warranties, either express or implied, are hereby given that the mask will prevent infection or the transmission of viruses or diseases. The mask is not a substitute for professional medical advice, diagnosis or treatment. If you have any specific questions about any medical matter, you should always consult a doctor or other healthcare provider", 12.00);
 
 
-INSERT INTO Shops (shop_name, owner_name, location, total_sales, founded_date, owner_url) VALUES ("Masks-R-Us", "Masky Maskerson", "San Fransisco, United States", "2020", "https://i.etsystatic.com/iusa/4e4617/74743775/iusa_75x75.74743775_j7yl.jpg?version=0");
+INSERT INTO Shops (shop_name, owner_name, location, total_sales, founded_date, owner_url) VALUES ("Masks-R-Us", "Masky Maskerson", "San Fransisco, United States", 42000, "2020", "https://shmetsy.s3.us-east-2.amazonaws.com/owner1.jpeg");
 
 INSERT INTO Colors (color_name, price_modifier, product_id) VALUES ("Black", 2.00, 1);
 

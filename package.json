@@ -10,7 +10,9 @@
   "scripts": {
     "start": "webpack -d --watch",
     "build": "webpack --mode production",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "schema": "mysql -u mta630 < schema.sql",
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
