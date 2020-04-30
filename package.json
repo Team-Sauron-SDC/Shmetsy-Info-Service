@@ -2,16 +2,38 @@
   "name": "",
   "version": "",
   "description": "",
-  "author": "",
-  "license": "",
+  "author": "Michael Albert",
+  "license": "HRR",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "webpack -d --watch",
+    "build": "webpack --mode production",
+    "server": "nodemon server/index.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "css-loader": "^3.5.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "jquery": "^3.5.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.3",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-react-jsx-self": "^7.9.0",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
