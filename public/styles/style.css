@@ -1,0 +1,34 @@
+.container {
+  width: 900px;
+  margin: auto;
+  text-align: center;
+  display: block;
+}
+
+.box {
+  width: 100%;
+  border: 1px solid grey;
+  display: flex;
+  margin-top: 50px;
+}
+
+.box ul {
+  list-style: none;
+  line-height: 20px;
+}
+
+.box ul li{
+  margin-top: 20px;
+}
+
+.labels {
+  width: 50%;
+  font-weight: 600;
+  padding: 25px;
+}
+
+.values {
+  width: 50%;
+  padding: 25px;
+}
+
