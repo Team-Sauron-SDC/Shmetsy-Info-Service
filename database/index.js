@@ -7,10 +7,19 @@ const connection = mysql.createConnection({
   database: 'Shmetsy',
 });
 
-// populateDatabase = () => {
+const getProduct = (id, callback) => {
+  const queryString = `SELECT * from Products where id = ${id}`;
 
-// }
+  connection.query(queryString, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+};
 
 
 module.exports = {
+  getProduct,
 };
