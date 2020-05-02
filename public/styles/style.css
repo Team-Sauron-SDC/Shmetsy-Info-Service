@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 .container {
   width: 900px;
   margin: auto;
-  text-align: center;
   display: block;
+  font-family: 'Roboto', sans-serif;
 }
 
 .box {
   width: 100%;
-  border: 1px solid grey;
   display: flex;
   margin-top: 50px;
+}
+
+.header-section {
+  margin: auto;
 }
 
 .box ul {
@@ -21,14 +27,41 @@
   margin-top: 20px;
 }
 
-.labels {
-  width: 50%;
-  font-weight: 600;
-  padding: 25px;
+.header-product-text {
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 400;
+  padding-left: 10px;
+  padding-top: 14px;
+  font-size: 26px;
 }
 
-.values {
-  width: 50%;
-  padding: 25px;
+
+.divider {
+  color: #e1e3df;
+  font-size: 14px;
 }
 
+.header-text {
+  font-size: 16px;
+  font-weight: 300;
+  color: #222;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.price-text {
+  padding-left: 10px;
+  padding-top: 20px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.in-stock-text {
+  font-size: 13px;
+  float: right;
+  padding-top: 12px;
+}
+
+.stars {
+  letter-spacing: 5px;
+}
