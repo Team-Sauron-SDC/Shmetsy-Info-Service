@@ -1,39 +1,13 @@
-# Project Name
+# Shmetsy, details module
 
-> Project description
+> This is my module for the Arwen team's Front end capstone project. I will be recreating the details and purchase options module on the right hand side of etsys webpage.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Arwen-Fec/carousel-module
+  - https://github.com/Arwen-Fec/reviews-module.git
+  - https://github.com/Arwen-Fec/suggested-module
 
-## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
 
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
 

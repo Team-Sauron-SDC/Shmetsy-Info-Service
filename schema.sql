@@ -10,6 +10,7 @@ CREATE TABLE `Products` (
   `shop_id` INTEGER,
   `description` TEXT,
   `price` DECIMAL,
+  `rating` DECIMAL(5,1),
   PRIMARY KEY (`id`)
 );
 
@@ -35,7 +36,7 @@ CREATE TABLE `Colors` (
 );
 
 
-INSERT INTO Products (name, shop_id, description, price) VALUES ("High quality face mask", 1, "Face mask / face cover
+INSERT INTO Products (name, shop_id, description, price, rating) VALUES ("High quality face mask", 1, "Face mask / face cover
 Unisex face masks handcrafted.
 Made from TWO layers of breathable tightly woven cotton which allows the mask to be breathable yet soft to touch.
 
@@ -55,7 +56,7 @@ If you can not wait until May, I recommend not ordering. Thank you!
 No returns or exchanges accepted due to personal character of this item, unless wrong size or color was shipped to you.
 
 LEGAL DISCLAIMER:
-The mask is not intended to act as a medical device or other medical product, and should not be used as a replacement for conventional and approved personal protective equipment. No warranties, either express or implied, are hereby given that the mask will prevent infection or the transmission of viruses or diseases. The mask is not a substitute for professional medical advice, diagnosis or treatment. If you have any specific questions about any medical matter, you should always consult a doctor or other healthcare provider", 12.00);
+The mask is not intended to act as a medical device or other medical product, and should not be used as a replacement for conventional and approved personal protective equipment. No warranties, either express or implied, are hereby given that the mask will prevent infection or the transmission of viruses or diseases. The mask is not a substitute for professional medical advice, diagnosis or treatment. If you have any specific questions about any medical matter, you should always consult a doctor or other healthcare provider", 12.00, 3.5);
 
 
 INSERT INTO Shops (shop_name, owner_name, location, total_sales, founded_date, owner_url) VALUES ("Masks-R-Us", "Masky Maskerson", "San Fransisco, United States", 42000, "2020", "https://shmetsy.s3.us-east-2.amazonaws.com/owner1.jpeg");

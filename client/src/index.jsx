@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from 'react';
@@ -40,33 +41,16 @@ class App extends React.Component {
     return (
     <div className="container">
       <div className="box">
-        <div className="labels">
-          <ul>
-            <li>id: </li>
-            <li>name: </li>
-            <li>shop_id: </li>
-            <li>price: </li>
-            <li>description: </li>
-          </ul>
-        </div>
-        <div className="values">
-          <ul>
-            <li>{this.state.product.id}</li>
-            <li>{this.state.product.name}</li>
-            <li>{this.state.product.shop_id}</li>
-            <li>{this.state.product.price}</li>
-            <li>{this.state.product.description}</li>
-          </ul>
-        </div>
-    </div>
-      <div className="box">
-        <div className="labels">
-          <ul>
-          </ul>
-        </div>
-        <div className="values">
-          <ul>
-          </ul>
+        <div className="header-section">
+          <span className="header-text">Shop-Name</span>
+          <span className="divider">|</span>
+          <span className="header-text">5,000 sales</span>
+          <span className="divider">|</span>
+          <span className="header-text stars"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="far fa-star"></i></span>
+          <div className="header-product-text">{this.state.product.name}</div>
+          <div className="price-text">$20.50
+          <span className="in-stock-text"><i className="fas fa-check"></i> In Stock</span>
+          </div>
         </div>
       </div>
     </div>
