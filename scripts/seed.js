@@ -8,6 +8,8 @@ const connection = mysql.createConnection({
 });
 
 let shopId = 1;
+const possibleRatings = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
+
 
 for (let i = 0; i < 99; i += 1) {
   if (i === 20) {
@@ -22,8 +24,9 @@ for (let i = 0; i < 99; i += 1) {
   const description = faker.fake('{{lorem.paragraphs}}');
   const productName = faker.fake('{{commerce.productName}}');
   const price = faker.fake('{{commerce.price}}');
+  const rating = possibleRatings[Math.floor(Math.random() * 10)];
 
-  const queryString = `INSERT INTO Products (name, shop_id, description, price) VALUES ('${productName}', ${shopId}, '${description}', '${price}')`;
+  const queryString = `INSERT INTO Products (name, shop_id, description, price, rating) VALUES ('${productName}', ${shopId}, '${description}', ${price}, ${rating})`;
 
   connection.query(queryString, (err) => {
     if (err) {

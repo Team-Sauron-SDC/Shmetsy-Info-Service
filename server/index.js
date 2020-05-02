@@ -7,6 +7,7 @@ const db = require('../database');
 const PORT = 4200;
 const app = express();
 
+app.use(express.static(path.join(__dirname, '/../public')));
 app.use("/:id", express.static(path.join(__dirname, '/../public')));
 app.use(bodyParser.json());
 

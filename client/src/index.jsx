@@ -46,6 +46,7 @@ class App extends React.Component {
             <li>name: </li>
             <li>shop_id: </li>
             <li>price: </li>
+            <li>rating</li>
             <li>description: </li>
           </ul>
         </div>
@@ -55,6 +56,7 @@ class App extends React.Component {
             <li>{this.state.product.name}</li>
             <li>{this.state.product.shop_id}</li>
             <li>{this.state.product.price}</li>
+            <li>{this.state.product.rating}</li>
             <li>{this.state.product.description}</li>
           </ul>
         </div>
