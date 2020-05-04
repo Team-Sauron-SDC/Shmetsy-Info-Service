@@ -2,10 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .container {
-  width: 900px;
+  width: 500px;
   margin: auto;
   display: block;
+  float: right;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .box {
@@ -65,4 +67,99 @@
 
 .stars {
   letter-spacing: 5px;
+}
+
+.checkout-options-container {
+  text-align: center;
+}
+
+.checkout-options-container form{
+  margin-top: 15px;
+  display: block;
+  float: left;
+}
+
+.select-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 300;
+  margin-bottom: 6px;
+  margin-right: 300px;
+  margin-top: 25px;
+}
+
+.select-value {
+  padding-left: 10px;
+}
+
+#select-color {
+  width: 67%;
+  box-shadow: 0 1px 6px 0 rgba(34, 34, 34, 0.15);
+  font-size: 16px;
+  height: 48px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  border-color: rgba(34, 34, 34, 0.15);
+  border-style: solid;
+  border-width: 1px;
+  color: #222222;
+  text-indent: 0.01px;
+  cursor: pointer;
+  transition: 200ms ease-out;
+  padding-left: 7px;
+}
+
+#select-color:hover {
+  border-color: rgba(34, 34, 34, 0.5);
+  box-shadow: 0 1px 12px 0 rgba(34, 34, 34, 0.2);
+}
+
+.btn {
+  color: #222222;
+  background: none;
+  border: 2px solid #222222;
+  display: block;
+  width: 67%;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 24px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  min-height: 48px;
+  min-width: 48px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 18px;
+  padding-right: 18px;
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  background-size: 100% 60%;
+  background-position: 50% 50%;
+}
+
+.buy-it-now-button {
+  transition: transform 200ms ease-out;
+  box-shadow: 0 4px 20px rgba(34, 34, 34, 0.15);
+}
+
+.buy-it-now-button:hover {
+  transform: scaleX(1.015) scaleY(1.035);
+  cursor: pointer;
+}
+
+.add-to-cart-button {
+  transition: .2s,opacity 150ms ease-out;
+  box-shadow: 0 4px 20px rgba(34, 34, 34, 0.15);
+  background: #222222;
+  color: #FFFFFF;
+}
+
+.add-to-cart-button:hover {
+  background: #2f2f2f;
+  transform: scaleX(1.015) scaleY(1.035) perspective(1px);
+  cursor: pointer;
 }
