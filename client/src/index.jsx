@@ -3,6 +3,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CheckoutOptions from './components/CheckoutOptions.jsx';
 
 const axios = require('axios');
 
@@ -13,6 +14,8 @@ class App extends React.Component {
     this.state = {
       currentId: null,
       product: [],
+      colors: [],
+      shop: [],
     };
   }
 
@@ -23,18 +26,42 @@ class App extends React.Component {
       currentId: id,
     }, () => {
       this.getProductInfo();
+      this.getColorInfo();
     });
   }
 
   getProductInfo() {
-    console.log(this.state.currentId);
     axios.get(`/product/${this.state.currentId}`)
+      .then((response) => {
+        this.setState({
+          product: response.data[0],
+        }, () => {
+          this.getShopInfo();
+        });
+      });
+  }
+
+  getShopInfo() {
+    axios.get(`/product/shop/${this.state.product.shop_id}`)
       .then((response) => {
         console.log(response);
         this.setState({
-          product: response.data[0],
+          shop: response.data[0],
         });
       });
+  }
+
+  getColorInfo() {
+    axios.get(`/product/colors/${this.state.currentId}`)
+      .then((response) => {
+        this.setState({
+          colors: response.data,
+        });
+      });
+  }
+
+  handleColorSelect() {
+
   }
 
   render() {
@@ -42,17 +69,18 @@ class App extends React.Component {
     <div className="container">
       <div className="box">
         <div className="header-section">
-          <span className="header-text">Shop-Name</span>
+          <span className="header-text">{this.state.shop.shop_name}</span>
           <span className="divider">|</span>
-          <span className="header-text">5,000 sales</span>
+          <span className="header-text">{this.state.shop.total_sales} sales</span>
           <span className="divider">|</span>
           <span className="header-text stars"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="far fa-star"></i></span>
           <div className="header-product-text">{this.state.product.name}</div>
-          <div className="price-text">$20.50
+          <div className="price-text">${this.state.product.price}
           <span className="in-stock-text"><i className="fas fa-check"></i> In Stock</span>
           </div>
         </div>
       </div>
+      <CheckoutOptions colors={this.props.colors}/>
     </div>
     );
   }

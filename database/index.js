@@ -19,7 +19,33 @@ const getProduct = (id, callback) => {
   });
 };
 
+const getColors = (id, callback) => {
+  const queryString = `SELECT * from Colors where product_id = ${id}`;
+
+  connection.query(queryString, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
+const getShop = (id, callback) => {
+  const queryString = `SELECT * from Shops where id = ${id}`;
+
+  connection.query(queryString, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
 
 module.exports = {
   getProduct,
+  getColors,
+  getShop,
 };
