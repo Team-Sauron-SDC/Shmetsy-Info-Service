@@ -32,7 +32,7 @@ app.get('/product/colors/:id', (req, res) => {
   });
 });
 
-app.get('/product/shop/:shopId', (req,res) => {
+app.get('/product/shop/:shopId', (req, res) => {
   db.getShop(Number(req.params.shopId), (err, data) => {
     if (err) {
       res.status(400).send(err);
