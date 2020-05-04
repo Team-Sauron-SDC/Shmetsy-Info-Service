@@ -23,7 +23,7 @@ for (let i = 0; i < 99; i += 1) {
   }
   const description = faker.fake('{{lorem.paragraphs}}');
   const productName = faker.fake('{{commerce.productName}}');
-  const price = faker.fake('{{commerce.price}}');
+  const price = Math.floor(Math.random() * (10000 - 500) + 500) / 100;
   const rating = possibleRatings[Math.floor(Math.random() * 10)];
 
   const queryString = `INSERT INTO Products (name, shop_id, description, price, rating) VALUES ('${productName}', ${shopId}, '${description}', ${price}, ${rating})`;
@@ -57,7 +57,7 @@ for (let i = 2; i < 6; i += 1) {
 }
 
 
-for (let i = 1; i < 101; i += 1) {
+for (let i = 2; i < 101; i += 1) {
   for (let j = 0; j < 5; j += 1) {
     const color = faker.fake('{{commerce.productAdjective}} {{commerce.color}}');
     const mod = Math.floor(Math.random() * (200 - 1) + 1);

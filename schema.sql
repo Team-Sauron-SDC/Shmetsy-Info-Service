@@ -9,7 +9,7 @@ CREATE TABLE `Products` (
   `name` TEXT,
   `shop_id` INTEGER,
   `description` TEXT,
-  `price` DECIMAL,
+  `price` DECIMAL(5,2),
   `rating` DECIMAL(5,1),
   PRIMARY KEY (`id`)
 );
