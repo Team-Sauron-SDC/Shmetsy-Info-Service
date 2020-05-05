@@ -41,6 +41,7 @@ class CheckoutOptions extends React.Component {
 
     return (
       <div className="checkout-options-container">
+          {/* DROP DOWN OPTIONS */}
           <label className="select-label">Color</label>
           <select id="select-color" onChange={this.handleColorChoice}>
             <option value="" disabled selected>Select a Color</option>
@@ -59,8 +60,31 @@ class CheckoutOptions extends React.Component {
               );
             })}
           </select>
+          {/* BUTTONS */}
           <button className="btn buy-it-now-button">Buy it now</button>
           <button className="btn add-to-cart-button">Add to cart</button>
+          {/* BELOW BUTTON TEXT */}
+          <div className="below-text-container">
+            <div className="below-text">
+              <img src="https://shmetsy.s3.us-east-2.amazonaws.com/cart.png"></img>
+              <div className="below-text-letters">
+              <span className="bolder">Other people want this!</span> Over 20 people have this in their carts right now.
+              </div>
+            </div>
+            <div className="below-text">
+              <img src="https://shmetsy.s3.us-east-2.amazonaws.com/truck.png"></img>
+              <div className="below-text-letters">
+                <span className="bolder">Nice choice!</span> Enjoy free shipping to the US when you spend $35+ at this shop.
+              </div>
+            </div>
+          </div>
+          {/* HANDMADE ICON */}
+          <div className="handmade-container">
+            <img src="https://shmetsy.s3.us-east-2.amazonaws.com/hand.png"></img>
+            <div className="handmade-text">
+            Handmade
+            </div>
+          </div>
       </div>
     );
   }
