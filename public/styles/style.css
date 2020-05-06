@@ -163,3 +163,44 @@
   transform: scaleX(1.015) scaleY(1.035) perspective(1px);
   cursor: pointer;
 }
+
+.below-text {
+  font-size: 13px;
+}
+
+.below-text-container {
+  width: 73%;
+  margin: auto;
+}
+
+.below-text {
+  display: flex;
+  padding: 15px;
+  line-height: 18px;
+}
+
+.below-text-letters {
+  margin: auto;
+  text-align: left;
+  padding-left: 11px;
+}
+
+.bolder {
+  font-weight: 500;
+}
+
+.handmade-container {
+  display: flex;
+  width: 68%;
+  margin: auto;
+  padding-top: 23px;
+}
+
+.handmade-text {
+  color: #595959;
+  font-weight: 300;
+  font-size: 13px;
+  text-align: left;
+  margin-top: 13px;
+  margin-left: 10px;
+}
