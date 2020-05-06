@@ -278,3 +278,73 @@
   text-align: center;
   margin-top: 40px;
 }
+
+.delivery-container {
+  margin: auto;
+  width: 80%;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.delivery-row {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.delivery-row.second {
+  margin-top: 33px;
+}
+
+.row-inner {
+  width: 50%;
+  text-align: center;
+  color: #595959;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#estimated-delivery {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #222222;
+  position: relative;
+}
+
+#estimated-delivery:hover {
+  cursor: help;
+}
+
+#estimated-delivery:hover #delivery-description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.bigger {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #222;
+}
+
+#delivery-description {
+  border: 1px solid rgba(34, 34, 34, 0.15);
+  border-radius: 12px;
+  background: #FFFFFF;
+  color: #222222;
+  padding: 12px;
+  width: 300px;
+  position: absolute;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 300;
+  text-align: left;
+  box-shadow: 0 6px 36px rgba(34, 34, 34, 0.325);
+  left: -20.7rem;
+  top: -.5rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s all ease-in-out;
+}
