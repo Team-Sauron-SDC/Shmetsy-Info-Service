@@ -4,6 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CheckoutOptions from './components/CheckoutOptions.jsx';
+import Description from './components/Description.jsx';
 
 const axios = require('axios');
 
@@ -97,6 +98,9 @@ class App extends React.Component {
       handleQuantity={this.handleQuantity}
       handleColorChoice={this.handleColorChoice}
       colors={this.state.colors}
+      />
+      <Description
+      description={this.state.product.description}
       />
     </div>
     );
