@@ -3,5 +3,8 @@ module.exports = {"extends": "airbnb-base",
   'no-console': 'off',
   'quotes': 'off'
    },
-   "parser": "babel-eslint"
+   "parser": "babel-eslint",
+   "plugins": [
+      "enzyme"
+  ]
 };
