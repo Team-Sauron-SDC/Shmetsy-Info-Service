@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 import CheckoutOptions from './CheckoutOptions.jsx';
 import Description from './Description.jsx';
 import Delivery from './Delivery.jsx';
+import Policies from './Policies.jsx';
+import Seller from './Seller.jsx';
 
 const axios = require('axios');
 
@@ -115,6 +117,9 @@ class App extends React.Component {
       />
       <Delivery
       location={this.state.shop.location}
+      />
+      <Policies
+      name={this.state.shop.shop_name}
       />
     </div>
     );
