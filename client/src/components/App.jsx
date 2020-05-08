@@ -121,6 +121,11 @@ class App extends React.Component {
       <Policies
       name={this.state.shop.shop_name}
       />
+      <Seller
+      url={this.state.shop.owner_url}
+      name={this.state.shop.owner_name}
+      shop_name={this.state.shop.shop_name}
+      />
     </div>
     );
   }
