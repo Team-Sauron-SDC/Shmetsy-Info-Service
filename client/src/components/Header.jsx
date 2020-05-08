@@ -17,7 +17,7 @@ class Header extends React.Component {
         </div>
         <div className="icons-container">
           <div className="header-column after-search">
-            Sell on Etsy
+            Sell on Shmetsy
           </div>
           <div className="header-column icons">
             <div className="column-icon">
