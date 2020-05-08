@@ -8,6 +8,7 @@ import Description from './Description.jsx';
 import Delivery from './Delivery.jsx';
 import Policies from './Policies.jsx';
 import Seller from './Seller.jsx';
+import Rating from 'react-rating';
 
 const axios = require('axios');
 
@@ -100,7 +101,7 @@ class App extends React.Component {
           <span className="divider">|</span>
           <span className="header-text">{this.state.shop.total_sales} sales</span>
           <span className="divider">|</span>
-          <span className="header-text stars"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="far fa-star"></i></span>
+          <span className="header-text stars"><Rating initialRating={this.state.product.rating} readonly={true} emptySymbol="fa fa-star-o" fullSymbol="fa fa-star"/></span>
           <div className="header-product-text">{this.state.product.name}</div>
           <div className="price-text">${((this.state.product.price + this.state.colorModifier) * this.state.quantity).toFixed(2)}
           <span className="in-stock-text"><i className="fas fa-check"></i> In Stock</span>
