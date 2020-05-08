@@ -5,4 +5,4 @@ import Header from './components/Header.jsx';
 
 
 ReactDOM.render(<Header />, document.getElementById('header'));
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('details'));
