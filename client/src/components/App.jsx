@@ -31,7 +31,6 @@ class App extends React.Component {
 
   componentDidMount() {
     const url = window.location.pathname;
-    console.log(url);
     const id = url.substr(1, url.length - 2);
     this.setState({
       currentId: id,
