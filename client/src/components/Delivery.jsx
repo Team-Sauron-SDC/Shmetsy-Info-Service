@@ -17,40 +17,40 @@ class Delivery extends React.Component {
     shipDate.setDate(shipDate.getDate() + 6);
 
     return (
-      <div className="delivery-container">
-        <div className="delivery-row">
-          <div className="row-inner">
-            <span id="estimated-delivery">Estimated delivery
-              <span id="delivery-description">
+      <div className="mta-delivery-container">
+        <div className="mta-delivery-row">
+          <div className="mta-row-inner">
+            <span id="mta-estimated-delivery">Estimated delivery
+              <span id="mta-delivery-description">
               The estimated delivery date is based on your purchase date, the recipient's location, the seller's processing time and location, and the shipping carrier. Other factors—like placing an order on a weekend or a holiday—may end up pushing the arrival of your item beyond the estimated delivery date. It's our hope that your item gets where it's going as soon as possible, but given the factors involved, this is only an estimate
               </span>
             </span>
           </div>
-          <div className="row-inner">
+          <div className="mta-row-inner">
             Ready to ship in
           </div>
         </div>
-        <div className="delivery-row">
-          <div className="row-inner bigger">
+        <div className="mta-delivery-row">
+          <div className="mta-row-inner mta-bigger">
           {months[shipDate.getMonth()]} {shipDate.getDate()} - {shipDate.getDate() + 3}
           </div>
-          <div className="row-inner bigger">
+          <div className="mta-row-inner mta-bigger">
             1-3 business days
           </div>
         </div>
-        <div className="delivery-row second">
-          <div className="row-inner">
+        <div className="mta-delivery-row mta-second">
+          <div className="mta-row-inner">
             From
           </div>
-          <div className="row-inner">
+          <div className="mta-row-inner">
             Cost to ship
           </div>
         </div>
-        <div className="delivery-row">
-          <div className="row-inner bigger">
+        <div className="mta-delivery-row">
+          <div className="mta-row-inner mta-bigger">
           {country}
           </div>
-          <div className="row-inner bigger">
+          <div className="mta-row-inner mta-bigger">
             free
           </div>
         </div>

@@ -22,6 +22,10 @@ app.get('/product/:id', (req, res) => {
   });
 });
 
+app.get('/:id/undefined', (req, res) => {
+  res.sendStatus(200);
+})
+
 app.get('/product/colors/:id', (req, res) => {
   db.getColors(Number(req.params.id), (err, data) => {
     if (err) {

@@ -57,7 +57,6 @@ class App extends React.Component {
   getShopInfo() {
     axios.get(`/product/shop/${this.state.product.shop_id}`)
       .then((response) => {
-        console.log(response);
         this.setState({
           shop: response.data[0],
         });
@@ -93,17 +92,17 @@ class App extends React.Component {
 
   render() {
     return (
-    <div className="container">
-      <div className="box">
-        <div className="header-section">
-          <span className="header-text">{this.state.shop.shop_name}</span>
-          <span className="divider">|</span>
-          <span className="header-text">{this.state.shop.total_sales} sales</span>
-          <span className="divider">|</span>
-          <span className="header-text stars"><Rating initialRating={this.state.product.rating} readonly={true} emptySymbol="fa fa-star-o" fullSymbol="fa fa-star"/></span>
-          <div className="header-product-text">{this.state.product.name}</div>
-          <div className="price-text">${((this.state.product.price + this.state.colorModifier) * this.state.quantity).toFixed(2)}
-          <span className="in-stock-text"><i className="fas fa-check"></i> In Stock</span>
+    <div className="mta-container">
+      <div className="mta-box">
+        <div className="mta-header-section">
+          <span className="mta-header-text">{this.state.shop.shop_name}</span>
+          <span className="mta-divider">|</span>
+          <span className="mta-header-text">{this.state.shop.total_sales} sales</span>
+          <span className="mta-divider">|</span>
+          <span className="mta-header-text mta-stars"><Rating initialRating={this.state.product.rating} readonly={true} emptySymbol="fa fa-star-o" fullSymbol="fa fa-star"/></span>
+          <div className="mta-header-product-text">{this.state.product.name}</div>
+          <div className="mta-price-text">${((this.state.product.price + this.state.colorModifier) * this.state.quantity).toFixed(2)}
+          <span className="mta-in-stock-text"><i className="fas fa-check"></i> In Stock</span>
           </div>
         </div>
       </div>
@@ -122,7 +121,7 @@ class App extends React.Component {
       name={this.state.shop.shop_name}
       />
       <Seller
-      url={this.state.shop.owner_url}
+      seller={this.state.shop}
       name={this.state.shop.owner_name}
       shop_name={this.state.shop.shop_name}
       />
