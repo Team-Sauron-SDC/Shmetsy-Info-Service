@@ -9,42 +9,42 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="header-container">
-        <div className="logo">Shmetsy</div>
-        <div className="search-bar-container">
-          <input class="search" type="text" placeholder="Search for items or shops"></input>
-          <div className="search-button" type="button"><i className="fas fa-search"></i></div>
+      <div className="mta-header-container">
+        <div className="mta-logo">Shmetsy</div>
+        <div className="mta-search-bar-container">
+          <input className="mta-search" type="text" placeholder="Search for items or shops"></input>
+          <div className="mta-search-button" type="button"><i className="fas fa-search"></i></div>
         </div>
-        <div className="icons-container">
-          <div className="header-column after-search">
+        <div className="mta-icons-container">
+          <div className="mta-header-column after-search">
             Sell on Shmetsy
           </div>
-          <div className="header-column icons">
-            <div className="column-icon">
-              <i className="far fars fa-heart"></i>
+          <div className="mta-header-column mta-icons">
+            <div className="mta-column-icon">
+              <i className="far mta-fars fa-heart"></i>
             </div>
-            <div className="text">
+            <div className="mta-text">
               Favorites
             </div>
           </div>
-          <div className="header-column icons">
-            <div className="column-icon">
-              <i className="far fars fa-bell"></i>
+          <div className="mta-header-column mta-icons">
+            <div className="mta-column-icon">
+              <i className="far mta-fars fa-bell"></i>
             </div>
-            <div className="text">
+            <div className="mta-text">
               Notifications
             </div>
           </div>
-          <div className="header-column icons">
-            <div className="column-icon">
-              <i className="fas fars fa-shopping-cart"></i>
+          <div className="mta-header-column mta-icons">
+            <div className="mta-column-icon">
+              <i className="fas mta-fars fa-shopping-cart"></i>
             </div>
-            <div className="text">
+            <div className="mta-text">
               Cart
             </div>
           </div>
         </div>
-        <div className="various-links">
+        <div className="mta-various-links">
         <div>Jewelry & Accessories</div>
         <div>Clothing & Shoes</div>
         <div>Home & Living</div>
@@ -53,7 +53,7 @@ class Header extends React.Component {
         <div>Art & Collectibles</div>
         <div>Craft Supplies</div>
         <div>Vintage</div>
-        <div><i class="fas fa-gift"></i> Gifts</div>
+        <div><i className="fas fa-gift"></i> Gifts</div>
         </div>
       </div>
     );

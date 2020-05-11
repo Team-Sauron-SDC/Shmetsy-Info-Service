@@ -19,17 +19,17 @@ class Description extends React.Component {
       this.setState({
         show: true,
       }, () => {
-        $('.fader').css('display', 'none');
-        $('#text-box').addClass('full-text-box').removeClass('description-text-box');
-        $('.learn-more-btn').html('Less');
+        $('.mta-fader').css('display', 'none');
+        $('#mta-text-box').addClass('mta-full-text-box').removeClass('mta-description-text-box');
+        $('.mta-learn-more-btn').html('Less');
       });
     } else {
       this.setState({
         show: false,
       }, () => {
-        $('#text-box').removeClass('full-text-box').addClass('description-text-box');
-        $('.fader').css('display', 'block');
-        $('.learn-more-btn').html('Learn more about this item');
+        $('#mta-text-box').removeClass('mta-full-text-box').addClass('mta-description-text-box');
+        $('.mta-fader').css('display', 'block');
+        $('.mta-learn-more-btn').html('Learn more about this item');
       });
     }
   }
@@ -37,18 +37,18 @@ class Description extends React.Component {
 
   render() {
     return (
-      <div className="description-container">
-        <div className="handmade-text header">
+      <div className="mta-description-container">
+        <div className="mta-handmade-text mta-header">
           Description
         </div>
-        <div id="text-box" className="description-text-box">
-          <div className="description-text">
+        <div id="mta-text-box" className="mta-description-text-box">
+          <div className="mta-description-text">
             {this.props.description}
           </div>
-          <p class="fader"></p>
+          <p className="mta-fader"></p>
         </div>
-        <div className="btn-container">
-          <a className="learn-more-btn" onClick={this.handleClick}>
+        <div className="mta-btn-container">
+          <a className="mta-learn-more-btn" onClick={this.handleClick}>
           Learn more about this item
           </a>
         </div>
