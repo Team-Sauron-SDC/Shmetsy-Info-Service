@@ -14,13 +14,3 @@ RUN npm install
 # Copy app source from current host directory to container working directory
 COPY . .
 CMD ["npm", "start"]
-
-
-# docker run  -d \
-# --publish 4200:4200 \
-# -e MYSQL_USER='root' \
-# -e MYSQL_PASSWORD='pass' \
-# -e MYSQL_DATABASE='Shmetsy' \
-# -e MYSQL_HOST='172.17.0.2' \
-# --link shmetsy-db:db \
-# --name=shmetsy-web server
