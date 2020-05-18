@@ -1,5 +1,9 @@
 DROP DATABASE IF EXISTS Shmetsy;
 CREATE DATABASE Shmetsy;
+-- CREATE USER 'root'@'%' IDENTIFIED BY 'root';
+-- CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';
+-- GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'mysql';
+-- GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'mysql';
 USE Shmetsy;
 
 
@@ -80,5 +84,3 @@ INSERT INTO Colors (color_name, price_modifier, product_id) VALUES ("Orange", 9.
 INSERT INTO Colors (color_name, price_modifier, product_id) VALUES ("Black/White", 16.00, 1);
 
 INSERT INTO Colors (color_name, price_modifier, product_id) VALUES ("USA", 99.99, 1);
-
---    mysql -u mta630 < schema.sql

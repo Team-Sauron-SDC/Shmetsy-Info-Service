@@ -394,6 +394,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 18px;
+  padding-left: 18px;
   text-decoration: none;
   color: #222222;
   border-radius: 24px;
@@ -532,7 +533,7 @@
 
 .mta-policies-header {
   font-size: 18px;
-  line-height: 1.mta-4;
+  line-height: 1.4;
   text-align: left;
 }
 

@@ -13,10 +13,10 @@ class Header extends React.Component {
         <div className="mta-logo">Shmetsy</div>
         <div className="mta-search-bar-container">
           <input className="mta-search" type="text" placeholder="Search for items or shops"></input>
-          <div className="mta-search-button" type="button"><i className="fas fa-search"></i></div>
+          <div className="mta-search-button" type="button"><i className="fas fa-search mta-fa-search"></i></div>
         </div>
         <div className="mta-icons-container">
-          <div className="mta-header-column after-search">
+          <div className="mta-header-column mta-after-search">
             Sell on Shmetsy
           </div>
           <div className="mta-header-column mta-icons">
