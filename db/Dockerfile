@@ -5,8 +5,3 @@ ENV MYSQL_DATABASE=Shmetsy \
     MYSQL_ROOT_HOST=%
 
 COPY ./schema.sql /docker-entrypoint-initdb.d/
-
-# docker run  -d \
-# --publish 6603:3306 \
-# --name=shmetsy-db db
-# --volume=./data:/var/lib/mysql
