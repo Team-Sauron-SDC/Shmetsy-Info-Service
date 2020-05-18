@@ -2,9 +2,10 @@ const mysql = require('mysql');
 const faker = require('faker');
 
 const connection = mysql.createConnection({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: 'Shmetsy',
+	host: process.env.MYSQL_HOST || '172.25.0.2',
+	user: process.env.MYSQL_USER || 'root',
+	password: process.env.MYSQL_PASSWORD || 'pass',
+	database: process.env.MYSQL_DATABASE || 'Shmetsy'
 });
 
 let shopId = 1;
@@ -51,7 +52,7 @@ for (let i = 2; i < 6; i += 1) {
     if (err) {
       console.error('There was an error: ', err);
     } else {
-      console.log('Successfully added 1 row to table');
+      console.log('Successfully added 1 row to table Shops');
     }
   });
 }

@@ -21,7 +21,7 @@ class Description extends React.Component {
       }, () => {
         $('.mta-fader').css('display', 'none');
         $('#mta-text-box').addClass('mta-full-text-box').removeClass('mta-description-text-box');
-        $('.mta-learn-more-btn').html('Less');
+        $('.mta-learn-more-controller').html('Less');
       });
     } else {
       this.setState({
@@ -29,7 +29,7 @@ class Description extends React.Component {
       }, () => {
         $('#mta-text-box').removeClass('mta-full-text-box').addClass('mta-description-text-box');
         $('.mta-fader').css('display', 'block');
-        $('.mta-learn-more-btn').html('Learn more about this item');
+        $('.mta-learn-more-controller').html('Learn more about this item');
       });
     }
   }
@@ -48,7 +48,7 @@ class Description extends React.Component {
           <p className="mta-fader"></p>
         </div>
         <div className="mta-btn-container">
-          <a className="mta-learn-more-btn" onClick={this.handleClick}>
+          <a className="mta-learn-more-btn learn-more-controller" onClick={this.handleClick}>
           Learn more about this item
           </a>
         </div>
