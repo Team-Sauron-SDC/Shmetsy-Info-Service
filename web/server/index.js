@@ -16,7 +16,7 @@ const PORT = 3001
 app.get('/product/:id', (req, res) => {
   db.getProduct(Number(req.params.id), (err, data) => {
     if (err) {
-      res.status(400).send(err);
+      res.status(400)
     } else {
       res.status(200).send(data);
     }
@@ -30,7 +30,7 @@ app.get('/:id/undefined', (req, res) => {
 app.get('/product/colors/:id', (req, res) => {
   db.getColors(Number(req.params.id), (err, data) => {
     if (err) {
-      res.status(400).send(err);
+      res.status(400)
     } else {
       res.status(200).send(data);
     }
@@ -40,9 +40,40 @@ app.get('/product/colors/:id', (req, res) => {
 app.get('/product/shop/:shopId', (req, res) => {
   db.getShop(Number(req.params.shopId), (err, data) => {
     if (err) {
-      res.status(400).send(err);
+      res.status(400)
     } else {
       res.status(200).send(data);
+    }
+  });
+});
+
+app.delete('/product/:id', (req, res) => {
+  db.deleteItem(req.body.name, (err, data) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.send(data);
+    }
+  });
+});
+
+app.post('/product/', (req, res) => {
+  db.addProduct(req.body, (err, data) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.send(data);
+    }
+  });
+});
+
+app.put('/product/shop/:shopId', (req, res) => {
+  db.updateSeller(req.body, Number(req.params.shopId), (err, data) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.send(data);
     }
   });
 });
