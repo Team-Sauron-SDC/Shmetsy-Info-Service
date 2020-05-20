@@ -2,9 +2,9 @@ const mysql = require('mysql');
 const faker = require('faker');
 
 const connection = mysql.createConnection({
-	host: process.env.MYSQL_HOST || '172.25.0.2',
+	host: process.env.MYSQL_HOST || 'localhost',
 	user: process.env.MYSQL_USER || 'root',
-	password: process.env.MYSQL_PASSWORD || 'pass',
+	password: process.env.MYSQL_PASSWORD || '',
 	database: process.env.MYSQL_DATABASE || 'Shmetsy'
 });
 
