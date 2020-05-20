@@ -12,7 +12,7 @@
 
 | HTTP Verb |           Endpoint         |            Action            |
 |-----------| -------------------------- | ---------------------------- |
-| **POST**  |         /products/         |  CREATE a new item into DB   |
+| **POST**  |         /products/         |  CREATE a new product in db  |
 | **GET**   |       /products/:id        |  READ data and return data   |
 | **PUT**   |   /products/shop/:shopid   |  UPDATE shop with new info   |
 |**DELETE** |       /products/:id        |  DELETE item based on ID     |
