@@ -4,10 +4,16 @@
 
 ## Related Projects
 
-  - https://github.com/Arwen-Fec/carousel-module
-  - https://github.com/Arwen-Fec/reviews-module.git
-  - https://github.com/Arwen-Fec/suggested-module
+  - https://github.com/Sauron-SDC/Shmetsy-carousel
+  - https://github.com/Sauron-SDC/Shmetsy-reviews
+  - https://github.com/Arwen-Fec/Shmetsy-suggested-service
 
+  ##CRUD Operatiuons
 
-
+| HTTP Verb |           Endpoint         |            Action            |
+|-----------| -------------------------- | ---------------------------- |
+| **POST**  |         /products/         |  CREATE a new item into DB   |
+| **GET**   |       /products/:id        |  READ data and return data   |
+| **PUT**   |   /products/shop/:shopid   |  UPDATE shop with new info   |
+|**DELETE** |       /products/:id        |  DELETE item based on ID     |
 
