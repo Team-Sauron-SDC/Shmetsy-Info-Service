@@ -4,28 +4,36 @@ const path = require('path');
 const mysql = require('mysql');
 const compression = require('compression');
 
-const PORT = process.env.PORT
-const HOST = process.env.HOST;
+// const PORT = process.env.PORT
+// const HOST = process.env.HOST;
+const PORT = 3001
 
 // mysql credentials
+// const connection = mysql.createConnection({
+// 	host: process.env.MYSQL_HOST,
+// 	user: process.env.MYSQL_USER,
+// 	password: process.env.MYSQL_PASSWORD,
+// 	database: process.env.MYSQL_DATABASE,
+// });
+
 const connection = mysql.createConnection({
-	host: process.env.MYSQL_HOST,
-	user: process.env.MYSQL_USER,
-	password: process.env.MYSQL_PASSWORD,
-	database: process.env.MYSQL_DATABASE,
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'Shmetsy',
 });
 
 connection.connect((err) => {
 	if (err) {
-    console.log(process.env.MYSQL_DATABASE);
+    // console.log(process.env.MYSQL_DATABASE);
 		console.error('error connecting mysql: ', err);
 	} else {
 		console.log('mysql connection successful');
-		app.listen(PORT, HOST, (err) => {
+		app.listen(PORT, (err) => {
 			if (err) {
 				console.error('Error starting  server', err);
 			} else {
-				console.log('server listening at port ', HOST + ":" + PORT);
+				console.log(`server listening at port, http://localhost:${PORT}/1`);
 			}
 		});
 	}
