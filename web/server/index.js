@@ -47,7 +47,6 @@ app.get('/product/shop/:shopId', (req, res) => {
   });
 });
 
-// database functions
 app.listen(PORT, (err) => {
   if (err) {
     console.error('Error starting  server', err);
