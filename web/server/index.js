@@ -60,6 +60,7 @@ app.delete('/product/:id', (req, res) => {
 app.post('/product/', (req, res) => {
   db.addProduct(req.body, (err, data) => {
     if (err) {
+      console.log(err);
       res.sendStatus(500);
     } else {
       res.send(data);
