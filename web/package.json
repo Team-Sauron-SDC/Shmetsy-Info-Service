@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "webpack -p --watch",
+    "dataGen": "node --max-old-space-size=8192 /scripts/DataGen.js",
     "start": "nodemon server/index.js",
     "schema": "mysql -u mta630 < schema.sql",
     "seed": "node scripts/seed.js",
