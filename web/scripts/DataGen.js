@@ -15,7 +15,7 @@ const generateColors = () => {
 };
 
 const writeProducts = fs.createWriteStream('product.csv');
-writeProducts.write('id, name, description, price, rating, shop_name, owner_name, total_sales, location, url, colors\n', 'utf8');
+writeProducts.write('id|name|description|price|rating|shop_name|owner_name|total_sales|location|url|colors\n', 'utf8');
 
 const generateData = (writer, encoding, callback) => {
   let i = 10000000;
@@ -27,7 +27,7 @@ const generateData = (writer, encoding, callback) => {
       productId += 1;
       const id = productId;
       const name = faker.commerce.productName();
-      const description = faker.lorem.paragraphs();
+      const description = faker.lorem.paragraph();
       const price = faker.commerce.price();
       const rating = faker.random.arrayElement([0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]);
       const shop_name = faker.company.companyName(0);
@@ -36,7 +36,7 @@ const generateData = (writer, encoding, callback) => {
       const location = faker.fake('{{address.city}}, {{address.country}}');
       const owner_url = faker.image.avatar();
       const colors = generateColors();
-      const data = `${id}, ${name}, ${description}, ${price}, ${rating}, ${shop_name}, ${owner_name}, ${total_sales}, ${location}, ${owner_url}, ${colors}\n`;
+      const data = `${id}|${name}|${description}|${price}|${rating}|${shop_name}|${owner_name}|${total_sales}|${location}|${owner_url}|${colors}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
