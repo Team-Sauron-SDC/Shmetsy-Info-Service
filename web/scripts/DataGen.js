@@ -1,47 +1,59 @@
+/* eslint-disable camelcase */
 const fs = require('fs');
-const csvWriter = require('csv-write-stream');
-
-const writer = csvWriter();
 const faker = require('faker');
 
+const start = new Date();
 
 const generateColors = () => {
-  const colorGroup = {
-    colors: [],
-  };
-  for (let i = 0; i < 1; i += 1) {
-    for (let j = 0; j < 5; j += 1) {
-      const color = faker.fake('{{commerce.productAdjective}} {{commerce.color}}');
-      const mod = Math.floor(Math.random() * (200 - 1) + 1);
-      colorGroup.colors.push({ color, mod });
-    }
+  const colorGroup = [];
+  for (let j = 0; j < 3; j += 1) {
+    const color_name = faker.commerce.color();
+    const price_modifier = Math.floor(Math.random() * (200 - 1) + 1);
+    colorGroup.push({ color_name, price_modifier });
   }
-  return colorGroup;
+  return JSON.stringify(colorGroup);
 };
 
-const generateData = () => {
-  for (let i = 0; i <= 10; i += 1) {
-    const possibleRatings = [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-    writer.pipe(fs.createWriteStream(`data.csv${i}`));
-    for (let j = 0; j < 1000000; j += 1) {
-      writer.write({
-        id: i,
-        product_name: faker.fake('{{commerce.productName}}'),
-        description: faker.fake('{{lorem.paragraphs}}'),
-        price: Math.floor(Math.random() * (10000 - 500) + 500) / 100,
-        product_rating: possibleRatings[Math.floor(Math.random() * 10)],
-        shopName: faker.fake('{{company.companyName}}'),
-        ownerName: faker.fake('{{name.firstName}} {{name.lastName}}'),
-        totalSales: Math.floor(Math.random() * (500000 - 100)) + 100,
-        location: faker.fake('{{address.city}}, {{address.country}}'),
-        url: faker.image.avatar(),
-      });
-    }
-    if (i === 10) {
-      writer.end();
+const writeProducts = fs.createWriteStream('product.csv');
+writeProducts.write('id, name, description, price, rating, shop_name, owner_name, total_sales, location, url, colors\n', 'utf8');
+
+const generateData = (writer, encoding, callback) => {
+  let i = 10000000;
+  let productId = 0;
+  function write() {
+    let ok = true;
+    do {
+      i -= 1;
+      productId += 1;
+      const id = productId;
+      const name = faker.commerce.productName();
+      const description = faker.lorem.paragraphs();
+      const price = faker.commerce.price();
+      const rating = faker.random.arrayElement([0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]);
+      const shop_name = faker.company.companyName(0);
+      const owner_name = faker.name.findName();
+      const total_sales = faker.random.number({ min: 100, max: 50000 });
+      const location = faker.fake('{{address.city}}, {{address.country}}');
+      const owner_url = faker.image.avatar();
+      const colors = generateColors();
+      const data = `${id}, ${name}, ${description}, ${price}, ${rating}, ${shop_name}, ${owner_name}, ${total_sales}, ${location}, ${owner_url}, ${colors}\n`;
+      if (i === 0) {
+        writer.write(data, encoding, callback);
+      } else {
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      console.log('drained: ', i);
+      writer.once('drain', write);
     }
   }
-  console.log('done');
+  console.log(`started at: ${start.toUTCString()}`);
+  write();
 };
 
-generateData();
+generateData(writeProducts, 'utf-8', () => {
+  writeProducts.end();
+  const end = new Date().getTime() - start.getTime();
+  console.log(`Data generated, Time spent: ${Math.floor(end / 60000)}m and ${((end % 60000) / 1000).toFixed(0)}secs`);
+});
