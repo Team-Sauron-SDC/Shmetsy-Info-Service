@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
-const db = require('../DB/index.js');
+// const db = require('../DB/index.js');
+const db = require('../DB/Cassandra.js');
+
 
 const app = express();
 
