@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const cassandra = require('cassandra-driver');
 
 const tempClient = new cassandra.Client({
@@ -12,7 +13,6 @@ const client = new cassandra.Client({
   keySpace: 'product_info',
 });
 
-
 tempClient.connect()
   .then(() => {
     const createKeyspace = "CREATE KEYSPACE IF NOT EXISTS product_info WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 } AND DURABLE_WRITES = true ;";
@@ -22,12 +22,24 @@ tempClient.connect()
     client.connect((err) => (err ? console.log('failed to connect', err) : console.log('connect to newkeyspace')));
   })
   .then(() => {
-    const createDatatype = 'CREATE TYPE colors ( color text, price_mod int );';
-    client.execute(createDatatype);
-  })
-  .then(() => {
-    const createTable = 'CREATE TABLE products (id int PRIMARY KEY, name text, description text, price double, rating text, shop_name text, owner_name text, totalSales int, location text, owner_url text)';
+    const createTable = 'CREATE TABLE IF NOT EXISTS product_info.products (id int PRIMARY KEY, name text, description text, price double, rating text, shop_name text, owner_name text, totalSales int, location text, owner_url text, colors text)';
 
-    client.execute(createTable)
-      .then((err) => (err ? console.log('failed to create table', err) : console.log('table created!')));
+    return client.execute(createTable);
+  })
+  .catch((err) => console.log('connection err: ', err));
+
+const getProduct = (id, callback) => {
+  const queryStr = `SELECT name, description, price, rating FROM product_info.products WHERE id = 1`;
+
+  client.execute(queryStr, (err, res) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, res);
+    }
   });
+  };
+
+  module.exports = {
+    getProduct,
+  }
