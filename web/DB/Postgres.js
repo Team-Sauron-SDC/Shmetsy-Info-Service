@@ -29,19 +29,19 @@ const Product = sequelize.define('products', {
 }, { timestamps: false });
 
 pool.connect()
-.then(() => console.log('connected to postgres'))
-.then(() => {
-  Product.sync()
-})
-.catch((err) => console.log('failed to connect: ', err));
+  .then(() => console.log('connected to postgres'))
+  .then(() => {
+    Product.sync()
+  })
+  .catch((err) => console.log('failed to connect: ', err));
 
 const getProduct = (id, callback) => {
   const queryStr = `SELECT name, description, price, rating FROM products WHERE id = ${id}`;
   pool.query(queryStr, (err, res) => {
     if (err) {
-      callabck(err, null);
+      callback(err, null);
     } else {
-      callback(null, res)
+      callback(null, res);
     }
   });
 };
@@ -61,9 +61,9 @@ const getColors = (id, callback) => {
   const queryStr = `SELECT colors FROM products WHERE  id = ${id}`;
   pool.query(queryStr, (err, res) => {
     if (err) {
-      callabck(err, null);
+      callback(err, null);
     } else {
-      callabck(null, res);
+      callback(null, res);
     }
   });
 };
@@ -72,4 +72,4 @@ module.exports = {
   getProduct,
   getShop,
   getColors,
-}
+};
