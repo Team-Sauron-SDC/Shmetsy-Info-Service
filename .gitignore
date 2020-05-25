@@ -1,4 +1,4 @@
 .env
 /web/node_modules
 /web/public/bundle.js
-/web/scripts/prodcut.csv
+/web/DB/prodcut

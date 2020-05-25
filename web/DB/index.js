@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const mysql = require('mysql');
 
 // const PORT = process.env.PORT
@@ -6,29 +7,29 @@ const mysql = require('mysql');
 
 // mysql credentials
 // const connection = mysql.createConnection({
-// 	host: process.env.MYSQL_HOST,
-// 	user: process.env.MYSQL_USER,
-// 	password: process.env.MYSQL_PASSWORD,
-// 	database: process.env.MYSQL_DATABASE,
+// host: process.env.MYSQL_HOST,
+// user: process.env.MYSQL_USER,
+// password: process.env.MYSQL_PASSWORD,
+// database: process.env.MYSQL_DATABASE,
 // });
 
 const connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'Shmetsy',
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'Shmetsy',
 });
 
 connection.connect((err) => {
-	if (err) {
+  if (err) {
     // console.log(process.env.MYSQL_DATABASE);
-		console.error('error connecting mysql: ', err);
-	} else {
-		console.log('mysql connection successful');
-	}
+    console.error('error connecting mysql: ', err);
+  } else {
+    console.log('mysql connection successful');
+  }
 });
 
-/*** FUNCTIONS ***/
+/** * FUNCTIONS ** */
 const getProduct = (id, callback) => {
   const queryString = `SELECT * from Products where id = ${id}`;
 
@@ -75,7 +76,7 @@ const deleteItem = (name, callback) => {
       callback(null, result);
     }
   });
-}
+};
 
 const addProduct = (body, callback) => {
   const queryString = `INSERT INTO Products (name, shop_id, description, price, rating) VALUES ('${body.name}', '${body.shop_id}', '${body.description}', '${body.price}', '${body.rating}')`;
@@ -87,7 +88,7 @@ const addProduct = (body, callback) => {
       callback(null, result);
     }
   });
-}
+};
 
 const updateSeller = (body, shopId, callback) => {
   const queryString = `UPDATE Shops SET shop_name = '${body.shop_name}', owner_name = '${body.owner_name}', location = '${body.location}' WHERE id = '${shopId}'`;
@@ -99,7 +100,7 @@ const updateSeller = (body, shopId, callback) => {
       callback(null, result);
     }
   });
-}
+};
 
 module.exports = {
   getProduct,
@@ -108,4 +109,4 @@ module.exports = {
   deleteItem,
   addProduct,
   updateSeller,
-}
+};
