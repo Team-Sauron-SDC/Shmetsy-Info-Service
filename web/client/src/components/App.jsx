@@ -3,12 +3,12 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CheckoutOptions from './CheckoutOptions.jsx';
-import Description from './Description.jsx';
-import Delivery from './Delivery.jsx';
-import Policies from './Policies.jsx';
-import Seller from './Seller.jsx';
 import Rating from 'react-rating';
+import CheckoutOptions from './CheckoutOptions';
+import Description from './Description';
+import Delivery from './Delivery';
+import Policies from './Policies';
+import Seller from './Seller';
 
 const axios = require('axios');
 
@@ -41,7 +41,8 @@ class App extends React.Component {
   }
 
   getProductInfo() {
-    axios.get(`/product/${this.state.currentId}`)
+    const { currentId } = this.state;
+    axios.get(`/product/${currentId}`)
       .then((response) => {
         this.setState({
           product: response.data[0],
@@ -50,31 +51,33 @@ class App extends React.Component {
         });
       })
       .catch((err) => {
-        console.error("Error in axios request: ", err);
+        console.error('Error in axios request: ', err);
       });
   }
 
   getShopInfo() {
-    axios.get(`/product/shop/${this.state.product.shop_id}`)
+    const { currentId } = this.state;
+    axios.get(`/product/shop/${currentId}`)
       .then((response) => {
         this.setState({
           shop: response.data[0],
         });
       })
       .catch((err) => {
-        console.error("Error in axios request: ", err);
+        console.error('Error in axios request: ', err);
       });
   }
 
   getColorInfo() {
-    axios.get(`/product/colors/${this.state.currentId}`)
+    const { currentId } = this.state;
+    axios.get(`/product/colors/${currentId}`)
       .then((response) => {
         this.setState({
           colors: response.data,
         });
       })
       .catch((err) => {
-        console.error("Error in axios request: ", err);
+        console.error('Error in axios request: ', err);
       });
   }
 
@@ -91,41 +94,56 @@ class App extends React.Component {
   }
 
   render() {
+    const { product } = this.state;
+    const { colorModifier } = this.state;
+    const { quantity } = this.state;
+    const { shop } = this.state;
+    const { colors } = this.state;
     return (
-    <div className="mta-container">
-      <div className="mta-box">
-        <div className="mta-header-section">
-          <span className="mta-header-text">{this.state.shop.shop_name}</span>
-          <span className="mta-divider">|</span>
-          <span className="mta-header-text">{this.state.shop.total_sales} sales</span>
-          <span className="mta-divider">|</span>
-          <span className="mta-header-text mta-stars"><Rating initialRating={this.state.product.rating} readonly={true} emptySymbol="fa fa-star-o" fullSymbol="fa fa-star"/></span>
-          <div className="mta-header-product-text">{this.state.product.name}</div>
-          <div className="mta-price-text">${((this.state.product.price + this.state.colorModifier) * this.state.quantity).toFixed(2)}
-          <span className="mta-in-stock-text"><i className="fas fa-check"></i> In Stock</span>
+      <div className="mta-container">
+        <div className="mta-box">
+          <div className="mta-header-section">
+            <span className="mta-header-text">{shop.shop_name}</span>
+            <span className="mta-divider">|</span>
+            <span className="mta-header-text">
+              {shop.total_sales}
+              {' '}
+              sales
+            </span>
+            <span className="mta-divider">|</span>
+            <span className="mta-header-text mta-stars"><Rating initialRating={product.rating} readonly emptySymbol="fa fa-star-o" fullSymbol="fa fa-star" /></span>
+            <div className="mta-header-product-text">{product.name}</div>
+            <div className="mta-price-text">
+              $
+              {((product.price + colorModifier) * quantity).toFixed(2)}
+              <span className="mta-in-stock-text">
+                <i className="fas fa-check" />
+                {' '}
+                In Stock
+              </span>
+            </div>
           </div>
         </div>
+        <CheckoutOptions
+          handleQuantity={this.handleQuantity}
+          handleColorChoice={this.handleColorChoice}
+          colors={colors}
+        />
+        <Description
+          description={product.description}
+        />
+        <Delivery
+          location={shop.location}
+        />
+        <Policies
+          name={shop.shop_name}
+        />
+        <Seller
+          seller={shop}
+          name={shop.owner_name}
+          shop_name={shop.shop_name}
+        />
       </div>
-      <CheckoutOptions
-      handleQuantity={this.handleQuantity}
-      handleColorChoice={this.handleColorChoice}
-      colors={this.state.colors}
-      />
-      <Description
-      description={this.state.product.description}
-      />
-      <Delivery
-      location={this.state.shop.location}
-      />
-      <Policies
-      name={this.state.shop.shop_name}
-      />
-      <Seller
-      seller={this.state.shop}
-      name={this.state.shop.owner_name}
-      shop_name={this.state.shop.shop_name}
-      />
-    </div>
     );
   }
 }

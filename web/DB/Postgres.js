@@ -17,7 +17,7 @@ const sequelize = new Sequelize('product_info', 'jorel', 'pass', {
 const Product = sequelize.define('products', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
   name: { type: DataTypes.STRING },
-  description: { type: DataTypes.STRING(1000)},
+  description: { type: DataTypes.STRING(1000) },
   price: { type: DataTypes.DECIMAL },
   rating: { type: DataTypes.DECIMAL },
   shop_name: { type: DataTypes.STRING },
@@ -31,45 +31,8 @@ const Product = sequelize.define('products', {
 pool.connect()
   .then(() => console.log('connected to postgres'))
   .then(() => {
-    Product.sync()
+    Product.sync();
   })
   .catch((err) => console.log('failed to connect: ', err));
 
-const getProduct = (id, callback) => {
-  const queryStr = `SELECT name, description, price, rating FROM products WHERE id = ${id}`;
-  pool.query(queryStr, (err, res) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, res);
-    }
-  });
-};
-
-const getShop = (id, callback) => {
-  const queryStr = `SELECT shop_name, owner_name, total_sales, location, owner_url FROM products where id = ${id}`;
-  pool.query(queryStr, (err, res) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, res);
-    }
-  });
-};
-
-const getColors = (id, callback) => {
-  const queryStr = `SELECT colors FROM products WHERE  id = ${id}`;
-  pool.query(queryStr, (err, res) => {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, res);
-    }
-  });
-};
-
-module.exports = {
-  getProduct,
-  getShop,
-  getColors,
-};
+module.exports = pool;

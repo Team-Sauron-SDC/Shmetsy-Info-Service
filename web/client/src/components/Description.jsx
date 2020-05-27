@@ -45,11 +45,11 @@ class Description extends React.Component {
           <div className="mta-description-text">
             {this.props.description}
           </div>
-          <p className="mta-fader"></p>
+          <p className="mta-fader" />
         </div>
         <div className="mta-btn-container">
           <a className="mta-learn-more-btn learn-more-controller" onClick={this.handleClick}>
-          Learn more about this item
+            Learn more about this item
           </a>
         </div>
       </div>
