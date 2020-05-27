@@ -5,8 +5,7 @@ exports.getColors = ((req, res) => {
     if (err) {
       res.status(400);
     } else {
-      console.log(data.rows[0].colors);
-      // const colors = JSON.parse(data.rows);
+      console.log(data.rows[0].colors.split(':'));
       res.status(200).send(data.rows);
     }
   });

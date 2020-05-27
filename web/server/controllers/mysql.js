@@ -1,7 +1,7 @@
 const mySql = require('../../DB/index.js');
 
-exports.getColors = ((req, res) => {
-  mySql.getColors(Number(req.params.id), (err, data) => {
+exports.getProduct = ((req, res) => {
+  mySql.getProduct(Number(req.params.id), (err, data) => {
     if (err) {
       res.status(400);
     } else {
@@ -10,8 +10,8 @@ exports.getColors = ((req, res) => {
   });
 });
 
-exports.getProduct = ((req, res) => {
-  mySql.getProduct(Number(req.params.id), (err, data) => {
+exports.getColors = ((req, res) => {
+  mySql.getColors(Number(req.params.id), (err, data) => {
     if (err) {
       res.status(400);
     } else {
