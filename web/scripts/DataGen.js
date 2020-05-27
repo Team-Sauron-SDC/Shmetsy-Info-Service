@@ -35,7 +35,8 @@ const generateData = (writer, encoding, callback) => {
       const total_sales = faker.random.number({ min: 100, max: 50000 });
       const location = faker.fake('{{address.city}}, {{address.country}}');
       const owner_url = faker.image.avatar();
-      const colors = generateColors();
+      const colorsobj = generateColors();
+      const colors = colorsobj.replace(/"/g, "'");
       const data = `${id}|${name}|${description}|${price}|${rating}|${shop_name}|${owner_name}|${total_sales}|${location}|${owner_url}|${colors}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
