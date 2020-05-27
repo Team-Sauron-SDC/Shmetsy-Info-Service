@@ -33,6 +33,11 @@ app.get('/:id/undefined', (req, res) => {
 // app.put('/product/shop/:shopId', Mysql.updateSeller);
 
 /* CASSANDRA */
+// app.get('/product/:id', Cassandra.getProduct);
+
+// app.get('/product/colors/:id', Cassandra.getColors);
+
+// app.get('/product/shop/:shopId', Cassandra.getShop);
 
 /* POSTGRES */
 app.get('/product/:id', Postgres.getProduct);

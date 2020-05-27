@@ -1,4 +1,4 @@
-const Cassandra = require('../../DB/Cassandra.js');
+const Cassandra = require('../../DB/models/cassandra');
 
 exports.getProduct = ((req, res) => {
   Cassandra.getProduct(Number(req.params.id), (err, data) => {
