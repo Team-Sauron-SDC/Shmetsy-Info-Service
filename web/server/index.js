@@ -1,3 +1,4 @@
+const nr = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -19,6 +20,15 @@ app.get('/:id/undefined', (req, res) => {
   res.sendStatus(200);
 });
 
+/* POSTGRES */
+app.get('/product/:id', Postgres.getProduct);
+
+app.get('/product/colors/:id', Postgres.getColors);
+
+app.get('/product/shop/:shopId', Postgres.getShop);
+
+app.post('/product/:id', Postgres.addProduct);
+
 /* MYSQL */
 // app.get('/product/:id', Mysql.getProduct);
 
@@ -38,13 +48,6 @@ app.get('/:id/undefined', (req, res) => {
 // app.get('/product/colors/:id', Cassandra.getColors);
 
 // app.get('/product/shop/:shopId', Cassandra.getShop);
-
-/* POSTGRES */
-app.get('/product/:id', Postgres.getProduct);
-
-app.get('/product/colors/:id', Postgres.getColors);
-
-app.get('/product/shop/:shopId', Postgres.getShop);
 
 app.listen(PORT, (err) => {
   if (err) {
