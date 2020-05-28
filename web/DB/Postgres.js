@@ -35,4 +35,7 @@ pool.connect()
   })
   .catch((err) => console.log('failed to connect: ', err));
 
-module.exports = pool;
+module.exports = {
+  pool,
+  Product,
+};
