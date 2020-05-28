@@ -2,3 +2,4 @@
 /web/node_modules
 /web/public/bundle.js
 /web/DB/prodcut
+/web/newrelic.js
