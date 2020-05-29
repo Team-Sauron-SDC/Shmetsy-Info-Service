@@ -3,3 +3,4 @@
 /web/public/bundle.js
 /web/DB/prodcut
 /web/newrelic.js
+/web/newrelic_agent.log
