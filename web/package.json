@@ -13,6 +13,7 @@
     "start": "nodemon server/index.js",
     "schema": "mysql -u mta630 < schema.sql",
     "seed": "node scripts/seed.js",
+    "stress": "artillery run -o report.json stress.yml",
     "test": "jest --detectOpenHandles --config ./jest.config.json"
   },
   "dependencies": {
