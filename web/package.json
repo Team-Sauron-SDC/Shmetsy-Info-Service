@@ -13,6 +13,7 @@
     "start": "nodemon server/index.js",
     "schema": "mysql -u mta630 < schema.sql",
     "seed": "node scripts/seed.js",
+    "stress": "artillery run -o report.json stress.yml",
     "test": "jest --detectOpenHandles --config ./jest.config.json"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "faker": "^4.1.0",
     "jquery": "^3.5.0",
     "mysql": "^2.18.1",
+    "newrelic": "^6.8.0",
     "nodemon": "^2.0.3",
     "path": "^0.12.7",
     "pg": "^8.2.1",

@@ -12,6 +12,7 @@ const pool = new Pool({
 const sequelize = new Sequelize('product_info', 'jorel', 'pass', {
   host: 'localhost',
   dialect: 'postgres',
+  logging: false,
 });
 
 const Product = sequelize.define('products', {
@@ -26,7 +27,10 @@ const Product = sequelize.define('products', {
   location: { type: DataTypes.STRING },
   owner_url: { type: DataTypes.STRING },
   colors: { type: DataTypes.STRING },
-}, { timestamps: false });
+}, {
+  indexes: [{ name: 'id', fields: ['id'] }],
+  timestamps: false,
+});
 
 pool.connect()
   .then(() => console.log('connected to postgres'))
@@ -35,4 +39,7 @@ pool.connect()
   })
   .catch((err) => console.log('failed to connect: ', err));
 
-module.exports = pool;
+module.exports = {
+  pool,
+  Product,
+};
