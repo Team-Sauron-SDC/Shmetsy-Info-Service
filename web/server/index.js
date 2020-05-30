@@ -3,9 +3,10 @@ const nr = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-// const Mysql = require('./controllers/mysql.js');
-const Postgres = require('./controllers/postgres.js');
-// const Cassandra = require('./controllers/cassandra.js');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const db = require('./controllers/index.js');
 
 const app = express();
 
@@ -14,36 +15,16 @@ app.use(express.static('public'));
 app.use('/:id', express.static('public'));
 app.use(bodyParser.json());
 
-const PORT = 3001;
+const PORT = process.env.PORT;
 
-/* POSTGRES */
-app.get('/product/:id', Postgres.getProduct);
+app.get('/product/:id', db.getProduct);
 
-app.get('/product/colors/:id', Postgres.getColors);
+app.get('/product/colors/:id', db.getColors);
 
-app.get('/product/shop/:shopId', Postgres.getShop);
+app.get('/product/shop/:shopId', db.getShop);
 
-app.post('/product/1', Postgres.addProduct);
+app.post('/product/1', db.addProduct);
 
-/* MYSQL */
-// app.get('/product/:id', Mysql.getProduct);
-
-// app.get('/product/colors/:id', Mysql.getColors);
-
-// app.get('/product/shop/:shopId', Mysql.getShop);
-
-// app.delete('/product/:id', Mysql.deleteItem);
-
-// app.post('/product/', Mysql.addProduct);
-
-// app.put('/product/shop/:shopId', Mysql.updateSeller);
-
-/* CASSANDRA */
-// app.get('/product/:id', Cassandra.getProduct);
-
-// app.get('/product/colors/:id', Cassandra.getColors);
-
-// app.get('/product/shop/:shopId', Cassandra.getShop);
 
 app.listen(PORT, (err) => {
   if (err) {
