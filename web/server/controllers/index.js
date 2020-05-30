@@ -1,3 +1,3 @@
-// const db = require(`./${process.env.DB}.js`);
+const db = require(`./${process.env.DB}.js`);
 
-// module.exports = db;
+module.exports = db;
