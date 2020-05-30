@@ -2,14 +2,14 @@ const { Sequelize, DataTypes } = require('sequelize');
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'jorel',
-  host: 'localhost',
-  database: 'product_info',
-  password: 'pass',
-  port: 5432,
+  user: process.env.PGUSER,
+  host: process.env.PGHOST,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  port: process.env.PGPORT,
 });
 
-const sequelize = new Sequelize('product_info', 'jorel', 'pass', {
+const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD, {
   host: 'localhost',
   dialect: 'postgres',
   logging: false,
