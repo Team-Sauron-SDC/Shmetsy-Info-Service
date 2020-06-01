@@ -10,7 +10,7 @@ const pool = new Pool({
 });
 
 const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD, {
-  host: 'localhost',
+  host: process.env.PGHOST,
   dialect: 'postgres',
   logging: false,
 });
