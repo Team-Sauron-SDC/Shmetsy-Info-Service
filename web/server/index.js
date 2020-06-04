@@ -25,8 +25,8 @@ app.get('/product/shop/:shopId', db.getShop);
 
 app.post('/product/1', db.addProduct);
 
-app.get('loaderio-cf56a420a64d834deb95d66a200c7344', (req, res) => {
-  res.send('loaderio-cf56a420a64d834deb95d66a200c7344');
+app.get(`${process.env.LOADERKEY}`, (req, res) => {
+  res.send(`${process.env.LOADERKEY}`);
 });
 
 app.listen(PORT, (err) => {
