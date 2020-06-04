@@ -25,11 +25,14 @@ app.get('/product/shop/:shopId', db.getShop);
 
 app.post('/product/1', db.addProduct);
 
+app.get(`${process.env.LOADERKEY}`, (req, res) => {
+  res.send(`${process.env.LOADERKEY}`);
+});
 
 app.listen(PORT, (err) => {
   if (err) {
     console.error('Error starting  server', err);
   } else {
-    console.log(`server listening at port, http://localhost:${PORT}/1`);
+    console.log(`server listening at port, http://18-225-36-183:${PORT}/1`);
   }
 });

@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['info section-service'],
+  app_name: ['deployed infoSection'],
   /**
    * Your New Relic license key.
    */
