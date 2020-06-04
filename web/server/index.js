@@ -25,11 +25,14 @@ app.get('/product/shop/:shopId', db.getShop);
 
 app.post('/product/1', db.addProduct);
 
+app.get('loaderio-cf56a420a64d834deb95d66a200c7344', (req, res) => {
+  res.send('loaderio-cf56a420a64d834deb95d66a200c7344');
+});
 
 app.listen(PORT, (err) => {
   if (err) {
     console.error('Error starting  server', err);
   } else {
-    console.log(`server listening at port, http://localhost:${PORT}/1`);
+    console.log(`server listening at port, http://18-225-36-183:${PORT}/1`);
   }
 });

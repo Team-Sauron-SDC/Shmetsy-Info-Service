@@ -16,10 +16,6 @@ config:
       arrivalRate: 100
       maxVusers: 100
       name: "100 users for 2 min"
-    - duration: 180
-      arrivalRate: 1000
-      maxVusers: 1000
-      name: '1000 users for 3 min'
 
 scenarios:
   - name: "get products"
