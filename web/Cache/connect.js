@@ -1,6 +1,6 @@
 const Redis = require('ioredis');
 
-const client = new Redis(6379);
+const client = new Redis(process.env.REDIS_PORT);
 
 // const empty = () => {
 //   client.flushdb((err, res) => {
