@@ -7,7 +7,7 @@ module.exports = {
 
     redis.productCache(`product${id}`, (err, data) => {
       if (err) {
-        return console.log(err);
+        throw (err);
       }
       if (data !== null) {
         const result = JSON.parse(data);
@@ -23,7 +23,7 @@ module.exports = {
 
     redis.shopCache(`shopId${id}`, (err, data) => {
       if (err) {
-        return console.log(err);
+        throw (err);
       }
       if (data !== null) {
         const result = JSON.parse(data);
@@ -39,7 +39,7 @@ module.exports = {
 
     redis.colorCache(`colors${id}`, (err, data) => {
       if (err) {
-        return console.log(err);
+        throw (err);
       }
       if (data !== null) {
         const result = JSON.parse(data);
