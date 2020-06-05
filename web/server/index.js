@@ -25,6 +25,10 @@ app.get('/product/shop/:shopId', redis.checkShop, db.getShop);
 
 app.post('/product/1', db.addProduct);
 
+app.get(`${process.env.LOADERKEY}`, (req, res) => {
+  res.send(`${process.env.LOADERKEY}`);
+});
+
 app.listen(PORT, (err) => {
   if (err) {
     console.error('Error starting  server', err);
