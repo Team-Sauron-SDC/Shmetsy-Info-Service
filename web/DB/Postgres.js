@@ -9,11 +9,12 @@ const pool = new Pool({
   port: process.env.PGPORT,
 });
 
-const sequelize = new Sequelize(process.env.PGDATABASE, process.env.PGUSER, process.env.PGPASSWORD, {
-  host: process.env.PGHOST,
-  dialect: 'postgres',
-  logging: false,
-});
+const sequelize = new Sequelize(process.env.PGDATABASE,
+  process.env.PGUSER, process.env.PGPASSWORD, {
+    host: process.env.PGHOST,
+    dialect: 'postgres',
+    logging: false,
+  });
 
 const Product = sequelize.define('products', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
