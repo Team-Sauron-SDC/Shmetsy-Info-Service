@@ -4,3 +4,5 @@
 /web/DB/prodcut
 /web/newrelic.js
 /web/newrelic_agent.log
+/web/package-lock.json
+
