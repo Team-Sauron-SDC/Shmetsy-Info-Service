@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// const nr = require('newrelic');
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
