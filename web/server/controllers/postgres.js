@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const Postgres = require('../../DB/models/postgres');
 const redis = require('../../Cache/connect');
 
