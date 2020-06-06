@@ -40,7 +40,7 @@ const colorCache = (id, callback) => {
 };
 
 const insert = (id, data) => {
-  client.set(id, data)
+  client.set(id, data, 'EX', 1800)
     .catch((err) => console.log(err));
 };
 
