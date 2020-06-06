@@ -17,6 +17,10 @@ app.use(bodyParser.json());
 
 const { PORT } = process.env;
 
+app.get('/:id/undefined', (req, res) => {
+  res.sendStatus(200);
+});
+
 app.get('/product/:id', redis.checkProduct, db.getProduct);
 
 app.get('/product/colors/:id', redis.checkColor, db.getColors);

@@ -3,6 +3,7 @@ const path = require('path');
 const SRC_DIR = path.join(__dirname, 'client/src');
 
 module.exports = {
+  mode: 'production',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
