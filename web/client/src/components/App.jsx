@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import React from 'react';
+import React, { lazy, suspense } from 'react';
 import ReactDOM from 'react-dom';
 import Rating from 'react-rating';
 import CheckoutOptions from './CheckoutOptions';
